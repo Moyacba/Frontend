@@ -28,7 +28,6 @@
                     Total Gastado: {{this.totalGastado}}
                 </div>
             </div> -->
-
             <div id="tableProducts">
                 <div>
                     <b-table
@@ -43,6 +42,7 @@
 
                     </b-table>
                 </div>
+            <Loader v-if="onLoader"></Loader>
             </div>
         </b-card>
     </b-container>
@@ -51,9 +51,13 @@
 <script>
 import {mapGetters} from 'vuex'
 import axios from 'axios'
+import Loader from '../components/Loader.vue'
 
 export default {
     name: 'ListPurchaseView',
+    components:{
+        Loader
+    },
 
     data() {
         return {
@@ -65,6 +69,7 @@ export default {
                 {key: 'cantidad', sortable: true, class:'text-center'},
                 {key: 'precio', sortable: true, class:'text-center'}
             ],
+            onLoader: true,
             purchases: {},
             totalGastado: 0,
             sortBy: 'idCompra',
@@ -80,6 +85,7 @@ export default {
         axios.get(this.api + '/api/purchase')
             .then(res => {
                 this.purchases = res.data
+                this.onLoader = false
             })
     },
     
