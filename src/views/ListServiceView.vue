@@ -80,7 +80,7 @@
     </b-card>
     <b-modal
       v-model="editarShow"
-      title="Servicio Técnico"
+      title="Orden de Servicio"
       centered
       hide-footer
       size="lg"
@@ -90,14 +90,14 @@
         :idServicio="idServicio"
         :dateService="dateService"
         :dateModifi="dateModifi"
-        :cliente="cliente"
-        :telefono="telefono"
-        :presupuesto="presupuesto"
-        :producto="producto"
-        :motivo="motivo"
-        :estado="estado"
-        :detalles="detalles"
-        :pago="pago"
+        :cliente="'Cliente:         ' + cliente"
+        :telefono="'Cliente:         ' + telefono"
+        :presupuesto="'Cliente:         ' + presupuesto"
+        :producto="'Modelo:         ' + producto"
+        :motivo="'Cliente:         ' + motivo"
+        :estado="'Cliente:         ' + estado"
+        :detalles="'Cliente:         ' + detalles"
+        :pago="'Cliente:         ' + pago"
         :btnCambiar="btnCambiar"
       >
       </ServiceView>

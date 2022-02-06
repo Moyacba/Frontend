@@ -13,10 +13,11 @@
                 type="search"
                 id="buscarEntrada"
                 placeholder="Nombre del Producto"
+                v-on:keyup.enter="buscarEnTabla()"
               >
               </b-form-input>
               <b-input-group-append>
-                <b-button @click="buscarEnTabla()">Buscar</b-button>
+                <b-button  @click="buscarEnTabla()">Buscar</b-button>
               </b-input-group-append>
             </b-input-group>
           </b-col>
@@ -184,12 +185,17 @@ export default {
     },
     compararBusqueda: function (valor, tabla) {
       var Coincidencias = [];
+      
 
       for (let i = 0; i < tabla.length; i++) {
         var name = tabla[i].producto.toLowerCase();
 
         if (name.includes(valor.toLowerCase())) {
           Coincidencias.push(tabla[i]);
+        }
+
+        if (tabla[i].idProduct == valor){
+          Coincidencias.push(tabla[i])
         }
       }
 

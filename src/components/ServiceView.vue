@@ -3,7 +3,7 @@
         <b-card>
             <b-card-title>
                 <b-container class="cardTitle">
-                    <h4>Registro:</h4>
+                    <h5>Nro de Orden : {{idServicio}}</h5>
                     <h5 class="mt-1">{{dateService}}</h5>
                 </b-container>
             </b-card-title>
@@ -13,11 +13,14 @@
                     </b-card-title>
                     <b-row>
                         <b-col>
+                            <b-form-input v-model="cliente"></b-form-input>
+                        </b-col>
+                        <!-- <b-col>
                             <b-form-input disabled v-model="cliente"></b-form-input>
                         </b-col>
                         <b-col>
                             <b-form-input disabled v-model="pago"></b-form-input>
-                        </b-col>
+                        </b-col> -->
                     </b-row>
                     <b-row class="mt-4">
                         <b-col>
